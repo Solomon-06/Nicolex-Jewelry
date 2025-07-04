@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+    --primary-color: #f8f5f2;
+    --secondary-color: #e8e0d9;
+    --accent-color: #c4b6a8;
+    --text-color: #4a4238;
+    --highlight-color: #f0e6d2;
+    --white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h5, .business-text h1, .bracelet-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+header {
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.top-section-wrapper {
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.top-section {
+    display: flex;
+    padding: 3rem;
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.business-text {
+    flex: 1;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-showcase {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    overflow: visible;
+}
+
+.bracelet-photo {
+    position: absolute;
+    left: 20px;
+    top: 14%;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-section {
+    display: flex;
+    padding: 3rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.couple-photo {
+    flex: 1;
+    height: 500px;
+    background-color: var(--secondary-color);
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://i.ibb.co/nMjyCTT4/Whats-App-Image-2025-05-07-at-20-48-55-348e5bac.jpg');
+    border-radius: 8px;
+}
+
+.about-text {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bracelet-carousel {
+    padding: 3rem 0;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: carousel-scroll 20s linear infinite;
+}
+
+.carousel-item {
+    width: 250px;
+    height: 150px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--white);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+.products-main {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bracelets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.bracelet-box {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bracelet-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+}
+
+.bracelet-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(0,0,0,0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.prev {
+    left: 15px;
+}
+
+.carousel-arrow.next {
+    right: 15px;
+}
+
+
+.bracelet-image:not(.multiple-images) .carousel-arrow {
+    display: none;
+}
+
+
+.bracelet-image img.active {
+    opacity: 1;
+}
+
+.bracelet-name {
+    padding: 1rem;
+    text-align: center;
+}
+
+.bracelet-price {
+    padding: 0 1rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-top: auto;
+}
+
+.bracelet-box:hover {
+    transform: translateY(-5px);
+}
+
+.bracelet-box:hover .bracelet-image img {
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    background-color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.instagram-btn:hover {
+    transform: scale(1.1);
+}
+
+.tiktok-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #000000; 
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tiktok-btn:hover {
+    transform: scale(1.1);
+}
+
+.tiktok-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #25F4EE, #FE2C55, transparent);
+    transition: 0.5s;
+}
+
+
+.tiktok-btn:hover::before {
+    left: 100%;
+}
+
+
+.facebook-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: blue; 
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.facebook-btn:hover {
+    transform: scale(1.1);
+}
+
+.vinted-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: greenyellow url('https://www.svgrepo.com/show/505055/vinted.svg') no-repeat center center;
+    background-size: 60%;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.vinted-btn:hover {
+    transform: scale(1.1);
+}
+
+.filter-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: white;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.bracelet-box {
+    transition: all 0.3s ease;
+}
+
+.bracelet-box.hidden {
+    display: none;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.stock-status {
+    font-weight: bold;
+    margin-top: 2px;
+    color: green;
+  }
+  
+  .stock-status.out {
+    color: red;
+  }
+  
+  
+  
+
+/* Responsive stuff*/
+@media (max-width: 1024px) {
+    .couple-photo {
+        height: 450px;
+    }
+}
+
+@media (max-width: 900px) {
+    .top-section, .about-section {
+        flex-direction: column;
+        padding: 2rem;
+        height: auto;
+    }
+
+    .product-showcase, .business-text, .couple-photo {
+        width: 100%;
+        height: auto;
+    }
+
+    .bracelet-photo {
+        position: static;
+        max-height: 400px;
+        margin: 2rem auto 0;
+    }
+
+    .bracelets-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .top-section, .about-section {
+        padding: 1.5rem;
+    }
+
+    .bracelets-container {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-track {
+        animation-duration: 30s;
+    }
+
+    .bracelet-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem;
+    }
+
+    .couple-photo {
+        aspect-ratio: 1/1;
+        height: 300px;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+}
